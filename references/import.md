@@ -41,20 +41,20 @@ Do not scan unrelated directories. Directory traversal is recursive only when th
 
 ## Import steps
 
-1. Read `discussion/PROJECT.md` and existing docs before creating anything.
+1. Read `discussion/PROJECT.md` and existing documents before creating anything.
 2. Enumerate the specified source files without modifying them.
 3. Parse message, turn, or section boundaries.
 4. Segment content when the main question, independent goal, completion criteria, expected output, or evidence requirements change.
 5. Match each segment against existing Inquiries.
 6. Keep same-question alternatives as Paths inside an existing Inquiry.
-7. Create peer Inquiry docs for independent questions.
-8. Create Task docs for explicit executable actions.
+7. Create peer Inquiry documents for independent questions.
+8. Create Task documents for explicit executable actions.
 9. Extract durable Claims, Evidence, Conclusions, Assumptions, and Decisions.
 10. Preserve source file paths and section, message, or line anchors in visible `Source and provenance` sections.
 11. Update `discussion/PROJECT.md`.
 12. Report ambiguous segments for review.
 
-One source file can produce multiple Inquiry docs. Do not flatten all topics into one document.
+One source file can produce multiple Inquiry documents. Do not flatten all topics into one document.
 
 ## Provenance without Session storage
 
@@ -108,13 +108,13 @@ A concise AI summary is not Evidence by itself.
 
 The source transcript is not retained, so exact hash-based session deduplication is not available. Avoid obvious duplicates by:
 
-- reading current docs first;
+- reading current documents first;
 - matching questions by meaning, not title alone;
 - updating an existing Artifact when the source adds support or counterevidence;
 - preserving a new source location when it contributes distinct evidence;
 - asking before replacing a conflicting Decision.
 
-Running import twice must not create duplicate docs for unchanged material.
+Running import twice must not create duplicate documents for unchanged material.
 
 ## Import output
 
@@ -122,9 +122,9 @@ After import, report:
 
 ```text
 Updated discussion/PROJECT.md
-Created or updated Inquiry docs: ...
-Created or updated WorkItem docs: ...
-Created or updated Artifact docs: ...
+Created or updated Inquiry documents: ...
+Created or updated WorkItem documents: ...
+Created or updated Artifact documents: ...
 Ambiguous segments requiring review: ...
 Broken or unresolved source locations: ...
 ```
@@ -135,12 +135,12 @@ Import is complete when:
 
 ```text
 all accessible source material was considered;
-independent topics have separate Inquiry docs;
+independent topics have separate Inquiry documents;
 same-question alternatives are Paths;
 explicit actions are Tasks;
 durable outputs have visible source locations;
 no Session entity or session file was created;
-discussion/PROJECT.md reflects the imported docs;
+discussion/PROJECT.md reflects the imported documents;
 nothing was written outside discussion/;
 ambiguous classification is visible instead of silently guessed.
 ```

@@ -1,13 +1,14 @@
 ---
 name: discussion-management
 description: >
-  Organize substantial AI discussions into a project's discussion/ workspace
-  (PROJECT.md plus docs records). Use when a current session contains one or more questions that need
-  to be clarified, researched, concluded, or turned into follow-up work. Use
-  when initializing discussion-management for a project, processing another
-  session into the project's docs, extracting inquiries, claims, evidence,
-  decisions, or tasks, or updating the project overview. Distinguish same-
-  question reasoning paths from independent inquiries and tasks.
+  Organize substantial AI discussions into a project's discussion/ workspace,
+  keeping PROJECT.md plus inquiries/, artifacts/, and work-items/ as plain
+  Markdown records. Use when a session contains one or more questions that need
+  to be clarified, researched, concluded, or turned into follow-up work; when
+  initializing discussion-management for a project; when processing another
+  session into the project's documents; when extracting inquiries, claims,
+  evidence, decisions, or tasks; or when updating the project overview.
+  Distinguish same-question reasoning paths from independent inquiries and tasks.
 ---
 
 # Discussion Management
@@ -26,7 +27,7 @@ Turn the current AI session into maintainable documents inside the project's `di
 
 All files this skill creates or updates live under `discussion/`. Keep them out of the surrounding project content so the two never mix.
 
-The current session is temporary input. Do not create or maintain a Session entity, session file, session registry, or transcript archive. The output of `session init` is the durable docs structure.
+The current session is temporary input. Do not create or maintain a Session entity, session file, session registry, or transcript archive. The output of `session init` is the durable record files.
 
 ## Read the relevant reference
 
@@ -93,7 +94,7 @@ init import <path>      = session init import <path>
 
 ### `project init`
 
-Create or normalize `discussion/PROJECT.md` and the `discussion/inquiries/`, `discussion/work-items/`, and `discussion/artifacts/` folders in the current project directory. Do not ingest the current session and do not create docs records unless the user explicitly asks for `session init`.
+Create or normalize `discussion/PROJECT.md` and the `discussion/inquiries/`, `discussion/work-items/`, and `discussion/artifacts/` folders in the current project directory. Do not ingest the current session and do not create record documents unless the user explicitly asks for `session init`.
 
 If the project already has discussion content elsewhere, move it into `discussion/` rather than leaving two competing locations.
 
@@ -105,22 +106,22 @@ A single current session may produce multiple independent Inquiry and WorkItem d
 
 ### `session init import <file-or-directory>`
 
-Transform an earlier dialogue file or directory into the current project's docs. Do not create imported Session records. Preserve source paths or section anchors inside the resulting plain Markdown documents where available. Read `references/import.md`.
+Transform an earlier dialogue file or directory into the current project's documents. Do not create imported Session records. Preserve source paths or section anchors inside the resulting plain Markdown documents where available. Read `references/import.md`.
 
 ### Other commands
 
-- `status`: read and present `PROJECT.md` and active docs.
-- `map`: present the relationships recorded in `PROJECT.md` and linked docs.
+- `status`: read and present `PROJECT.md` and active documents.
+- `map`: present the relationships recorded in `PROJECT.md` and linked documents.
 - `new inquiry`: create an independent Inquiry under `discussion/inquiries/`.
 - `path`: record a same-question reasoning path in the relevant Inquiry.
 - `capture`: create or update an Artifact or Task with its source relationship.
-- `close`: consolidate the active discussion into docs and update `PROJECT.md`.
+- `close`: consolidate the active discussion into documents and update `PROJECT.md`.
 - `review`: find missing links, unresolved inquiries, unsupported claims, stale decisions, and orphaned work-items.
 
 ## Persistence rules
 
 - `discussion/` is the only write boundary. Create and update nothing outside it.
-- `discussion/PROJECT.md` is the only project-level file. It contains the goal, current focus, active inquiries, recent conclusions and decisions, open validation items, next work, and links to all active docs.
+- `discussion/PROJECT.md` is the only project-level file. It contains the goal, current focus, active inquiries, recent conclusions and decisions, open validation items, next work, and links to all active documents.
 - Inquiry, WorkItem, and Artifact documents under `discussion/` are the durable records.
 - The current session is not a durable record.
 - Generated project documents use ordinary Markdown only. Do not add YAML frontmatter, Obsidian properties, Wikilinks, or Obsidian-specific metadata.

@@ -26,7 +26,7 @@ The durable layout is:
 
 Do not create `projects/`, `sessions/`, `index.md`, or `overview.md` for this skill. Do not write discussion records anywhere outside `discussion/`.
 
-The current AI session is an input boundary, not a durable entity. `session init` reads the current session and writes its durable results into the project docs. It does not create a Session document, session registry, transcript archive, or Session-to-Inquiry join file.
+The current AI session is an input boundary, not a durable entity. `session init` reads the current session and writes its durable results into the project documents. It does not create a Session document, session registry, transcript archive, or Session-to-Inquiry join file.
 
 ## Entities
 
@@ -42,7 +42,7 @@ The Project records:
 - recent Conclusions and Decisions;
 - assumptions needing validation;
 - next WorkItems;
-- links to durable docs;
+- links to durable documents;
 - project change notes when useful.
 
 The project is considered **discussion-managed** after `project init` has created or normalized `discussion/PROJECT.md` and its sibling record folders, and `session init` has established the document structure.
@@ -119,7 +119,7 @@ Assumption  a temporary premise that still needs validation
 Decision    an explicitly adopted project choice
 ```
 
-Create an Artifact file when the item is referenced by multiple docs, affects a project decision, needs independent review, or creates follow-up work. Otherwise it may be recorded in the relevant Inquiry and summarized in `PROJECT.md`.
+Create an Artifact file when the item is referenced by multiple documents, affects a project decision, needs independent review, or creates follow-up work. Otherwise it may be recorded in the relevant Inquiry and summarized in `PROJECT.md`.
 
 Artifact template:
 
@@ -185,7 +185,7 @@ Status: proposed
 
 - none
 
-## Related docs
+## Related documents
 
 ## Notes
 ```
@@ -206,7 +206,7 @@ Status: proposed
 
 ## Derived from
 
-## Related docs
+## Related documents
 
 ## Notes
 ```
@@ -231,10 +231,10 @@ The primary structure is:
 
 ```text
 PROJECT.md
-  ├── Inquiry docs
+  ├── Inquiry documents
   │     ├── Paths
   │     └── Artifacts
-  └── WorkItem docs
+  └── WorkItem documents
         ├── derived from Artifacts
         └── depends on other WorkItems
 ```
@@ -253,8 +253,8 @@ artifact-evidence-log-as-source.md
 task-implement-discussion-skill.md
 ```
 
-If a document must be renamed, update all links in `discussion/PROJECT.md` and related docs in the same operation.
+If a document must be renamed, update all links in `discussion/PROJECT.md` and related documents in the same operation.
 
 ## Plain Markdown requirement
 
-Generated project docs must contain no YAML frontmatter, Obsidian properties, Wikilinks, or Obsidian-specific syntax. Use headings, labels, relative Markdown links, checklists, and tables only.
+Generated project documents must contain no YAML frontmatter, Obsidian properties, Wikilinks, or Obsidian-specific syntax. Use headings, labels, relative Markdown links, checklists, and tables only.

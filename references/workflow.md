@@ -9,7 +9,7 @@ current AI session
   → identify topics and questions
   → classify statements and sources
   → extract durable outputs
-  → create or update docs
+  → create or update documents
   → update PROJECT.md
 ```
 
@@ -19,7 +19,7 @@ Before writing:
 2. use its `discussion/` folder as the workspace;
 3. ensure `discussion/PROJECT.md` exists, creating it through `project init` if necessary;
 4. ensure `discussion/inquiries/`, `discussion/work-items/`, and `discussion/artifacts/` exist;
-5. read the current `discussion/PROJECT.md` and relevant existing docs;
+5. read the current `discussion/PROJECT.md` and relevant existing documents;
 6. process the current session as temporary source material.
 
 Write only inside `discussion/`. Never place discussion records in the surrounding project content.
@@ -78,7 +78,7 @@ Assumption  temporary premise
 Decision    adopted choice
 ```
 
-Create an independent Artifact file when it is reused across docs, affects a Decision, needs review, has independent evidence, or produces follow-up work. Otherwise record it in the Inquiry and summarize it in `PROJECT.md`.
+Create an independent Artifact file when it is reused across documents, affects a Decision, needs review, has independent evidence, or produces follow-up work. Otherwise record it in the Inquiry and summarize it in `PROJECT.md`.
 
 An AI suggestion remains provisional until the user adopts it or implementation proceeds on it.
 
@@ -86,11 +86,11 @@ An AI suggestion remains provisional until the user adopts it or implementation 
 
 After classifying the current session:
 
-1. update existing Inquiry docs;
-2. create new Inquiry docs for independent active questions;
+1. update existing Inquiry documents;
+2. create new Inquiry documents for independent active questions;
 3. create proposed Inquiry or Task WorkItems for follow-up work not yet started;
-4. create or update Artifact docs;
-5. add relative links among all affected docs;
+4. create or update Artifact documents;
+5. add relative links among all affected documents;
 6. update `discussion/PROJECT.md` current focus, active inquiries, recent outputs, validation needs, and next work;
 7. check for broken relative links;
 8. report the created, updated, and ambiguous items.
@@ -116,7 +116,7 @@ If `discussion/PROJECT.md` already exists, preserve its useful content and norma
 
 On each run:
 
-1. read `discussion/PROJECT.md` and existing docs;
+1. read `discussion/PROJECT.md` and existing documents;
 2. detect whether a current topic matches an existing Inquiry;
 3. append new reasoning to the matching Inquiry instead of creating duplicates;
 4. create a new Inquiry only when question, goal, or completion criteria are independent;
@@ -158,7 +158,7 @@ unsupported Claims;
 unvalidated Assumptions;
 stale or superseded Decisions;
 WorkItems without sources;
-duplicate Inquiry docs;
+duplicate Inquiry documents;
 Paths that are actually independent questions;
 independent questions incorrectly embedded as Paths;
 discussion/PROJECT.md sections missing from the current state;

@@ -171,7 +171,7 @@ Show only title, status, next action, and the most relevant link. If `PROJECT.md
 
 ## `map` output
 
-Show a compact relationship map from the Project document and active docs:
+Show a compact relationship map from the Project document and active documents:
 
 ```text
 Project
