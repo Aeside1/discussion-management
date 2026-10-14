@@ -25,9 +25,9 @@ Turn the current AI session into maintainable documents inside the project's `di
 └── <project content>          code, research, notes, and other project material
 ```
 
-All files this skill creates or updates live under `discussion/`. Keep them out of the surrounding project content so the two never mix.
+All files this skill creates or updates live under `discussion/`.
 
-The current session is temporary input. Do not create or maintain a Session entity, session file, session registry, or transcript archive. The output of `session init` is the durable record files.
+The current session is temporary input. The output of `session init` is the durable record files: Inquiry, WorkItem, and Artifact documents.
 
 ## Read the relevant reference
 
@@ -66,7 +66,7 @@ reusable statement, source, synthesis, assumption, or adopted choice
   → Artifact document
 ```
 
-A new independent Inquiry is not a Path. A Path is only another way to answer the same Inquiry.
+A Path is another way to answer the same Inquiry. A new independent Inquiry has its own question, goal, and completion criteria.
 
 ## Commands
 
@@ -94,7 +94,7 @@ init import <path>      = session init import <path>
 
 ### `project init`
 
-Create or normalize `discussion/PROJECT.md` and the `discussion/inquiries/`, `discussion/work-items/`, and `discussion/artifacts/` folders in the current project directory. Do not ingest the current session and do not create record documents unless the user explicitly asks for `session init`.
+Create or normalize `discussion/PROJECT.md` and the `discussion/inquiries/`, `discussion/work-items/`, and `discussion/artifacts/` folders in the current project directory. Ingest the current session only when the user asks for `session init`.
 
 If the project already has discussion content elsewhere, move it into `discussion/` rather than leaving two competing locations.
 
@@ -102,11 +102,11 @@ If the project already has discussion content elsewhere, move it into `discussio
 
 Resolve the current project directory, then use its `discussion/` folder as the workspace. Ensure `discussion/PROJECT.md` and the sibling folders `discussion/inquiries/`, `discussion/work-items/`, and `discussion/artifacts/` exist, then transform the current AI session into durable Inquiry, WorkItem, and Artifact documents. Read `references/model.md`, `references/workflow.md`, and `references/presentation.md`.
 
-A single current session may produce multiple independent Inquiry and WorkItem documents. Do not save the current session as an entity.
+A single current session may produce multiple independent Inquiry and WorkItem documents.
 
 ### `session init import <file-or-directory>`
 
-Transform an earlier dialogue file or directory into the current project's documents. Do not create imported Session records. Preserve source paths or section anchors inside the resulting plain Markdown documents where available. Read `references/import.md`.
+Transform an earlier dialogue file or directory into the current project's documents. Preserve source paths or section anchors inside the resulting plain Markdown documents where available. Read `references/import.md`.
 
 ### Other commands
 
@@ -120,14 +120,13 @@ Transform an earlier dialogue file or directory into the current project's docum
 
 ## Persistence rules
 
-- `discussion/` is the only write boundary. Create and update nothing outside it.
-- `discussion/PROJECT.md` is the only project-level file. It contains the goal, current focus, active inquiries, recent conclusions and decisions, open validation items, next work, and links to all active documents.
+- `discussion/` is the write boundary.
+- `discussion/PROJECT.md` is the project-level file. It contains the goal, current focus, active inquiries, recent conclusions and decisions, open validation items, next work, and links to all active documents.
 - Inquiry, WorkItem, and Artifact documents under `discussion/` are the durable records.
-- The current session is not a durable record.
-- Generated project documents use ordinary Markdown only. Do not add YAML frontmatter, Obsidian properties, Wikilinks, or Obsidian-specific metadata.
+- Generated project documents use ordinary Markdown: headings, relative links, lists, tables.
 - Preserve uncertainty and provenance in visible Markdown sections.
-- Do not promote an AI suggestion to an accepted Decision without user adoption or implementation based on it.
-- Do not create a document for every sentence or every assistant response.
+- An AI suggestion becomes an accepted Decision when the user adopts it or implementation proceeds on that basis.
+- Create documents for substantial questions, claims, decisions, and tasks.
 
 ## Completion criteria
 
@@ -143,7 +142,6 @@ same-question alternatives are Paths;
 independent questions are Inquiries;
 executable actions are Tasks;
 durable documents have visible source and relationship sections;
-no Session entity or session file was created;
-no generated project document uses frontmatter or Obsidian-specific links;
+generated project documents use ordinary Markdown only;
 PROJECT.md reflects the new or changed documents.
 ```

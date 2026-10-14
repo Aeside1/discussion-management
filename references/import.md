@@ -2,7 +2,7 @@
 
 ## Purpose
 
-`session init import <file-or-directory>` processes earlier dialogue into the current project's `discussion/` workspace. It does not create imported Session records. The source is temporary input; the durable result is ordinary Markdown under `discussion/inquiries/`, `discussion/work-items/`, and `discussion/artifacts/`, plus updates to `discussion/PROJECT.md`.
+`session init import <file-or-directory>` processes earlier dialogue into the current project's `discussion/` workspace. The source is temporary input; the durable result is ordinary Markdown under `discussion/inquiries/`, `discussion/work-items/`, and `discussion/artifacts/`, plus updates to `discussion/PROJECT.md`.
 
 Compatibility alias:
 
@@ -14,11 +14,7 @@ init import <path> = session init import <path>
 
 Resolve the project directory first, then use its `discussion/` folder as the workspace.
 
-If `discussion/PROJECT.md` does not exist:
-
-1. run or recommend `project init`;
-2. do not silently choose a project root from an arbitrary transcript path;
-3. only continue when the user has clearly selected the project directory.
+If `discussion/PROJECT.md` does not exist, run or recommend `project init` and ensure the user has selected the project directory.
 
 Ensure these directories exist:
 
@@ -37,7 +33,7 @@ plain text with recognizable turn or section boundaries
 a directory explicitly provided by the user
 ```
 
-Do not scan unrelated directories. Directory traversal is recursive only when the user explicitly supplies a directory.
+Directory traversal is recursive when the user explicitly supplies a directory.
 
 ## Import steps
 
@@ -56,9 +52,9 @@ Do not scan unrelated directories. Directory traversal is recursive only when th
 
 One source file can produce multiple Inquiry documents. Do not flatten all topics into one document.
 
-## Provenance without Session storage
+## Provenance
 
-Because Sessions are not durable entities, provenance should be written as ordinary text:
+Provenance is written as ordinary text:
 
 ```markdown
 ## Source and provenance
@@ -74,21 +70,15 @@ For the current session:
 ## Source and provenance
 
 - Source: current AI session
-- Location: discussion segment beginning with “...”
+- Location: discussion segment beginning with "..."
 - Processing: `session init`
 ```
 
-Do not write `session_id`, Session frontmatter, a session registry, or a transcript archive.
-
 ## Project inference
 
-Do not create a Project from an import path alone. The project is the directory containing or selected for the `discussion/` workspace.
+The project is the directory containing or selected for the `discussion/` workspace.
 
-If the imported material suggests a different goal from the existing Project:
-
-- record the mismatch as an open question;
-- propose a new Project directory only if the user asks;
-- do not create a second Project document in the current project root.
+If the imported material suggests a different goal from the existing Project, record the mismatch as an open question.
 
 ## Artifact rules during import
 
@@ -102,19 +92,17 @@ explicit user adoption      → Decision
 later contradiction          → update status and add counterevidence
 ```
 
-A concise AI summary is not Evidence by itself.
+A concise AI summary is a Conclusion, not Evidence.
 
-## Idempotence and duplicates
+## Idempotence
 
-The source transcript is not retained, so exact hash-based session deduplication is not available. Avoid obvious duplicates by:
+Avoid duplicates by:
 
 - reading current documents first;
-- matching questions by meaning, not title alone;
+- matching questions by meaning;
 - updating an existing Artifact when the source adds support or counterevidence;
 - preserving a new source location when it contributes distinct evidence;
 - asking before replacing a conflicting Decision.
-
-Running import twice must not create duplicate documents for unchanged material.
 
 ## Import output
 
@@ -139,8 +127,6 @@ independent topics have separate Inquiry documents;
 same-question alternatives are Paths;
 explicit actions are Tasks;
 durable outputs have visible source locations;
-no Session entity or session file was created;
 discussion/PROJECT.md reflects the imported documents;
-nothing was written outside discussion/;
-ambiguous classification is visible instead of silently guessed.
+ambiguous classification is visible.
 ```

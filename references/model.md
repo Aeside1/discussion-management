@@ -10,9 +10,9 @@ The workspace has exactly one project-level document:
 PROJECT.md
 ```
 
-`PROJECT.md` is the project overview, index, and current-state record. It is not a database dump. Keep detailed content in the sibling folders and link to it with ordinary relative Markdown links.
+`PROJECT.md` is the project overview, index, and current-state record. Detailed content lives in the sibling folders and links from here with ordinary relative Markdown links.
 
-The durable layout is:
+The workspace layout:
 
 ```text
 <project directory>/
@@ -24,9 +24,7 @@ The durable layout is:
 └── <project content>
 ```
 
-Do not create `projects/`, `sessions/`, `index.md`, or `overview.md` for this skill. Do not write discussion records anywhere outside `discussion/`.
-
-The current AI session is an input boundary, not a durable entity. `session init` reads the current session and writes its durable results into the project documents. It does not create a Session document, session registry, transcript archive, or Session-to-Inquiry join file.
+The current AI session is an input boundary. `session init` reads the current session and writes its durable results into the project documents.
 
 ## Entities
 
@@ -89,9 +87,9 @@ Use ordinary Markdown sections:
 
 ### Path
 
-A Path is a same-question reasoning, solution, or validation route. It belongs inside the relevant Inquiry document; it is not normally a separate file.
+A Path is a same-question reasoning, solution, or validation route. It belongs inside the relevant Inquiry document.
 
-Use a Path only when the main question, goal, and completion criteria remain unchanged. Record competing Paths in a section such as:
+Use a Path when the main question, goal, and completion criteria remain unchanged. Record competing Paths in a section such as:
 
 ```markdown
 ## Paths
@@ -152,7 +150,7 @@ Confidence: medium
 ## Change notes
 ```
 
-A Claim or Conclusion is not automatically a Decision. An AI suggestion is not an accepted Decision unless the user adopts it or implementation proceeds on that basis.
+A Claim or Conclusion becomes a Decision when the user adopts it or implementation proceeds on that basis.
 
 ### WorkItem
 
@@ -211,7 +209,7 @@ Status: proposed
 ## Notes
 ```
 
-When a WorkItem becomes an active independent Inquiry, move or rename it into `discussion/inquiries/` and leave a short redirect note in the old document if needed. Do not duplicate its substantive content.
+When a WorkItem becomes an active independent Inquiry, move or rename it into `discussion/inquiries/`.
 
 ## Relationships
 
@@ -239,7 +237,7 @@ PROJECT.md
         └── depends on other WorkItems
 ```
 
-A new independent question derived from a conclusion is a sibling Inquiry or proposed Inquiry WorkItem, not a child Path. A Path is only an alternative route within one Inquiry.
+A new independent question derived from a conclusion is a sibling Inquiry or proposed Inquiry WorkItem. A Path is an alternative route within one Inquiry.
 
 ## IDs and filenames
 
@@ -255,6 +253,6 @@ task-implement-discussion-skill.md
 
 If a document must be renamed, update all links in `discussion/PROJECT.md` and related documents in the same operation.
 
-## Plain Markdown requirement
+## Plain Markdown
 
-Generated project documents must contain no YAML frontmatter, Obsidian properties, Wikilinks, or Obsidian-specific syntax. Use headings, labels, relative Markdown links, checklists, and tables only.
+Generated project documents use ordinary Markdown: headings, labels, relative links, lists, tables.

@@ -2,9 +2,9 @@
 
 ## Purpose
 
-`PROJECT.md`, at the root of the project's `discussion/` workspace, is the only project-level overview and index. It is the fast-reading entry point and the current-state record. Detailed content belongs in the sibling folders.
+`PROJECT.md`, at the root of the project's `discussion/` workspace, is the project-level overview and index. It is the fast-reading entry point and the current-state record. Detailed content belongs in the sibling folders.
 
-Generated project documents are ordinary Markdown. Do not use YAML frontmatter, Obsidian properties, Wikilinks, or Obsidian-specific metadata.
+Generated project documents are ordinary Markdown: headings, relative links, lists, tables.
 
 ## PROJECT.md layout
 
@@ -101,7 +101,7 @@ Document: [Inquiry document](inquiries/inquiry-example.md)
 - YYYY-MM-DD: ...
 ```
 
-Do not copy all Artifact contents into `PROJECT.md`. Include only status, title, the most relevant relation, and a link.
+Include only status, title, the most relevant relation, and a link.
 
 ## Ordering rules
 
@@ -151,7 +151,7 @@ Contradicts
 Supersedes
 ```
 
-Do not force cross-links into a deep tree. The document index and labeled links preserve the graph while the first sections remain readable.
+The document index and labeled links preserve the graph while the first sections remain readable.
 
 ## `status` output
 
@@ -167,7 +167,7 @@ Next WorkItems
 Document root
 ```
 
-Show only title, status, next action, and the most relevant link. If `PROJECT.md` is missing, route to `project init` rather than inventing a status view.
+Show only title, status, next action, and the most relevant link. If `PROJECT.md` is missing, route to `project init`.
 
 ## `map` output
 
@@ -183,7 +183,7 @@ Project
 └── Unresolved validation items
 ```
 
-Use document links and relationship labels for cross-links. Do not dump every document or reproduce full Artifact text.
+Use document links and relationship labels for cross-links. Show the structure, not every detail.
 
 ## Updating PROJECT.md
 
@@ -206,8 +206,6 @@ Before updating:
 4. ensure each displayed relation has a matching relation in the detailed document;
 5. keep the current focus short and actionable.
 
-`PROJECT.md` is authoritative for project-level status and navigation. Detailed statements and evidence remain authoritative in their own documents.
-
 ## Presentation completion criteria
 
 A presentation update is complete when:
@@ -216,10 +214,9 @@ A presentation update is complete when:
 exactly one PROJECT.md exists at discussion/PROJECT.md;
 current focus appears near the beginning;
 active Inquiries and next work are visible without opening every document;
-Paths are shown under their Inquiry, not confused with peer Inquiries;
+Paths are shown under their Inquiry;
 derived WorkItems show their source Artifact;
 all displayed links are ordinary relative Markdown links;
-no generated project document contains frontmatter or Obsidian-specific syntax;
-resolved detail remains accessible without making the overview noisy;
-nothing was written outside discussion/.
+generated project documents use ordinary Markdown;
+resolved detail remains accessible.
 ```
